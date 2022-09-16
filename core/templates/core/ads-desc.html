@@ -1,0 +1,123 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'core/css/con-desc.css'%}">
+<style>
+.ads-desc-title{
+    width: auto;
+    height: auto;
+    border: 0px solid black;
+    margin: 0px 75px;
+}
+.ads-desc-title h1{
+    width: auto;
+    height:auto;
+    border: 0px solid red;
+    padding: 5px;
+    line-height: 45px;
+}
+.ads-desc-con{
+    width: auto;
+    height: auto;
+    border: 0px solid black;
+    padding: 12px;
+}
+.ads-desc-con h2{
+    width: auto;
+    height:auto;
+    border: 0px solid red;
+    padding: 5px 0px;
+}
+.ads-desc-con p{
+    font-size: 17px;
+    line-height: 30px;
+}
+.desc-img-res{
+    width: auto;
+    height: auto;
+    border: 0px solid yellow;
+    padding: 0 12px;
+}
+.desc-img-res img{
+    width: 100%;
+    height: 85%;
+    border: 0px solid red;
+    border-radius: 5px;
+}
+@media screen and (max-width: 822px){
+    .content{
+    width: auto;
+    height: auto;
+    border: 0px solid black;
+    margin: 15px 0px !important;
+}
+    .ads-desc-title{
+    width: auto;
+    height: auto;
+    border: 1px solid black;
+    margin: 0px 5px;
+}
+}
+@media screen and (max-width: 350px){
+    .content{
+    width: auto;
+    height: auto;
+    border: 0px solid black;
+    margin: 15px 0px !important;
+}
+    .ads-desc-title{
+    width: auto;
+    height: auto;
+    border: 0px solid black;
+    margin: 0px 0px;
+}
+.ads-desc-con h2{
+    width: auto;
+    height:auto;
+    border: 0px solid red;
+    padding: 5px 0px;
+}
+    .ads-desc-title h1{
+    width: auto;
+    height:auto;
+    border: 0px solid red;
+    padding: 5px;
+    line-height: 32px;
+    font-size: 25px;
+}
+}
+</style>
+<script>
+    const navSlide = () => {
+    const navBars = document.querySelector('.logo span');
+    const navLinks = document.querySelector('nav ul');     
+        navBars.addEventListener('click', () => {
+        navLinks.classList.toggle('nav-active');
+});    
+}
+navSlide();
+</script>
+  <div class="ads-desc-title">
+           <h1>{{pi.title}}</h1>
+         <div class="desc-img-res">
+            <img src="{{pi.photo.url}}" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit." width="100%" height="100%">
+         </div>
+        <div class="ads-desc-con">  
+            <a href="{{pi.backlink}}">{{pi.linkname}}</a>
+            <h2>{{pi.title}}</h2>     
+                <p>{{pi.desc}}</p>
+
+            <h2>{{pi.subtitleone}}</h2>   
+                <p>{{pi.subdescone}}</p>
+
+            <h2>{{pi.subtitletwo}}</h2> 
+            <p>{{pi.subdesctwo}}</p>
+
+            <h2>{{pi.subtitlethree}}</h2>
+            <p>{{pi.subdescthree}}</p>
+
+
+        </div>
+    </div>
+
+{% endblock content %}  

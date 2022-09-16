@@ -1,0 +1,13 @@
+{% load static %}
+<nav>
+    <div class="logo">
+        <a href="{% url 'back-home'%}"><img src="{% static 'core/images/neutam.png' %}" alt="brand_logo" width="100%" height="100%" /></a>
+        <span><i class="fas fa-bars"></i></span>
+    </div>
+    <ul>
+        <a href="{% url 'back-home' %}"><li>Home</li></a>
+        <a href="{% url 'back-ads' %}"><li>Advertise</li></a>
+        <a href="{% url 'back-tech' %}"><li>Technology</li></a>
+        <a href="{% url 'back-make' %}"><li>Makemoney</li></a>
+    </ul>
+</nav>

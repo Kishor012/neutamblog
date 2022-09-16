@@ -1,0 +1,109 @@
+{% extends 'core/base.html'%}
+{% load static %}
+{% block content %}
+
+   <div class="header-wraper">
+        <div class="header" style="background-image: linear-gradient(-70deg, #00d8908f 30%, rgba(49, 92, 66, 0.411) 30%), url({{flex_tech.photo.url}});">
+            <div class="header-title">
+               <a href="{% url 'tech-desc' flex_tech.id %}"><h1>{{flex_tech.title|truncatewords:10}}</h1></a>
+            </div>
+        </div>
+
+        <div class="header-flex-box-man">
+            <div class="header-flex-man">
+                <div class="header-img">
+                    <img src="{{flex_tech.photo.url}}" alt="smiling-young-programmer Img_error" width="100%" height="100%">
+                </div>
+
+                <div class="header-flex-title">
+                   <a href="{% url 'tech-desc' flex_tech.id %}"><h3>{{flex_tech.title|truncatewords:8}}</h3></a>
+                    <small>{{flex_tech.date}}</small>
+                </div>
+            </div>
+
+            <div class="header-flex-man">
+                <div class="header-img">
+                    <img src="{{flex_make.photo.url}}" alt="skills-improve Img_error" width="100%" height="100%">
+                </div>
+
+                <div class="header-flex-title">
+                   <a href="{% url 'make-desc' flex_make.id %}"><h3>{{flex_make.title|truncatewords:8}}</h3></a>
+                    <small>{{flex_make.date}}</small>
+                </div>
+            </div>
+        </div>
+   </div>
+
+   <div class="sub-header-wraper-flex-man">
+    <div class="sub-header-wraper-man">
+        {% for ads in ads_all_post %}
+            <div class="sub-header-wraper">
+                    <div class="sub-header-img">
+                        <img src="{{ads.photo.url}}" alt="create_plan_howto_marketing img_error" width="100%" height="100%">
+                    </div>
+                    <div class="sub-header-title">
+                        <div class="sub-header-con">
+                          <a href="{% url 'ads-desc' ads.id %}"><h2>{{ads.title|truncatewords:12}}</h2>
+                            <p>{{ads.desc|truncatewords:24}}</p></a>
+                            <small>{{ads.date}}</small>
+                        </div>
+                    </div>
+            </div>
+        {% endfor %} 
+        
+        {% for tech in tech_all_post %}
+            <div class="sub-header-wraper">
+                <div class="sub-header-img">
+                    <img src="{{tech.photo.url}}" alt="create_plan_howto_marketing img_error" width="100%" height="100%">
+                </div>
+
+                <div class="sub-header-title">
+                    <div class="sub-header-con">
+                       <a href="{% url 'tech-desc' tech.id %}"><h2>{{tech.title|truncatewords:12}}</h2>
+                        <p>{{tech.desc|truncatewords:24}}</p></a>
+                        <small>{{tech.date}}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}   
+        
+        {% for make in make_all_post %}
+            <div class="sub-header-wraper">
+                <div class="sub-header-img">
+                    <img src="{{make.photo.url}}" alt="create_plan_howto_marketing img_error" width="100%" height="100%">
+                </div>
+                <div class="sub-header-title">
+                    <div class="sub-header-con">
+                       <a href="{% url 'make-desc' make.id %}"> <h2>{{make.title|truncatewords:12}}</h2>
+                        <p>{{make.desc|truncatewords:22}}</p></a>
+                        <small>{{make.date}}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}    
+    </div>
+
+        <div class="resend-post-man">
+            <h1>Resend Post</h1><hr>
+            {% for resend_ads in ads_all_post %} 
+                <div class="resend-post">
+                    <div class="resend-post-img">
+                        <img src="{{resend_ads.photo.url}}" alt="Make_Money_Online img_error" width="100%" height="100%">
+                    </div>
+                    <div class="resend-post-header">
+                       <a href="{% url 'ads-desc' resend_ads.id %}"><h4>{{resend_ads.title|truncatewords:10}}</h4></a>
+                        <small>{{resend_ads.date}}</small>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% for quick_tech in tech_all_post %}
+                <div class="quick-link-header">
+                    <div class="quick-link-title" style="background-image:url({{quick_tech.photo.url}});">
+                       <a href="{% url 'tech-desc' quick_tech.id %}"><h2>{{quick_tech.title|truncatewords:8}}</h2></a>
+                    </div>
+                </div>    
+            {% endfor %}
+    </div>    
+</div>
+{% endblock content %}
